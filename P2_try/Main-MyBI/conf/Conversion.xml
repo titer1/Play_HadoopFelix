@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<pras type="main">
+		<url>www.ceair.com/</url>
+		<url>flight.*?_CNY</url>
+		<url>booking_passenger.html</url>
+		<url>booking_confirm.html</url>
+		<id>hopperID115ddd</id>
+		<start>2014-10-21</start>
+		<end>213</end>
+	</pras>
+</root>

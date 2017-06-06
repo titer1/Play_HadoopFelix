@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<task type="add">
+		<table>table</table><!--数据库中需要增量导入的第一张表名  -->
+		
+		<!--其他需要增量导入的表名 -->
+	</task>
+	
+	<task type="all">
+		<table>table</table><!--数据库中需要增量导入的第一张表名  -->
+		
+		<!--其他需要增量导入的表名 -->
+	</task>
+</root>
+

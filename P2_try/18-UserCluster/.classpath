@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="hadoop-core-0.20.2-cdh3u6.jar"/>
+	<classpathentry kind="lib" path="mahout-core-0.7.jar"/>
+	<classpathentry kind="lib" path="mahout-core-0.7-job.jar"/>
+	<classpathentry kind="lib" path="log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="guava-r09-jarjar.jar"/>
+	<classpathentry kind="lib" path="commons-cli-2.0-mahout.jar"/>
+	<classpathentry kind="lib" path="mahout-integration-0.7.jar"/>
+	<classpathentry kind="lib" path="mahout-math-0.7.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

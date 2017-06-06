@@ -1,0 +1,42 @@
+package com.tsinghua;
+
+import org.apache.hadoop.hive.ql.exec.UDF;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+
+public class RowNumUDF extends UDF{
+				
+	public static String preSignature = "-";
+	public static int order = 0;
+	/*
+	 * 功能：实现结果集排序
+	 * 参数：表字段与标示
+	 * 返回：顺序
+	 * */
+	public Integer evaluate(IntWritable c,Text h){	
+		if(c!=null&&h!=null){
+			String clusterid = c.toString();
+			String hobby = h.toString();
+			String signature = clusterid + "-" + hobby;
+			
+			if(preSignature.equals("-")){
+				preSignature = signature;
+				order = 1;
+				return order;
+			}else{
+				if(preSignature.equals(signature)){
+					order += 1;
+					return order;
+				}else{
+				   preSignature = signature;
+				   order = 1;
+				   return order;
+				}
+			}
+		}
+		return order;	
+	}
+}
+
+
+

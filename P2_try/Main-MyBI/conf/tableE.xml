@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	
+		<sqoop-shell type="export">
+			<param key="connect">jdbc:mysql://localhost:3306/resultDB</param>
+			<param key="username">sam</param>
+			<param key="password">pwd</param>
+			<param key="target-dir">/user/hive/warehouse/orders</param>
+			<param key="m">10</param>
+            <param key="null-string">'\\N'</param>
+            <param key="null-non-string">'\\N'</param>
+			<param key="split-by">PKId</param>
+		</sqoop-shell>
+	
+</root>
+
+
+<!-- 
+select PKId,CustomerId,Status,to_char(OrderDate,'yyyy-mm-dd hh24:mi:ss'),ShippingHandling,ShipToName,ShipToAddressId,SubTotal,Tax,CreditCardType,CreditCardNumber,to_char(ExpirationDate,'yyyy-mm-dd hh24:mi:ss'),NameOnCard,ApprovalCode,to_char(ModifyDate,'yyyy-mm-dd hh24:mi:ss') from Orders where to_char(ExpirationDate,'yyyy-mm-dd hh24:mi:ss') \$CONDITIONS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ -->

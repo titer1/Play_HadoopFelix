@@ -1,0 +1,28 @@
+8
+
+dir
+567
+http://172.16.2.222:18080/svn/shanghangxin/RowNumUDF/.settings
+http://172.16.2.222:18080/svn/shanghangxin
+
+
+
+2014-03-10T07:45:34.287551Z
+567
+liwei@tsinghuabigdata.com
+
+
+svn:special svn:externals svn:needs-lock
+
+org.eclipse.jdt.core.prefs
+file
+
+
+
+
+2014-02-13T03:15:22.907342Z
+b04cdc984face127c0d3c96dc94a52fe
+2014-03-10T07:45:34.287551Z
+567
+liwei@tsinghuabigdata.com
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<sqoop-shell type="import">
+		<param key="connect">jdbc:oracle:thin:@172.25.2.150:1521:orcl</param>
+		<param key="username">sam</param>
+		<param key="password">pwd</param>
+		<param key="query">"select * from ORDERS where where to_char(ModifyDate,'yyyy-mm-dd hh24:mi:ss') \$CONDITIONS"</param>
+		<param key="target-dir">/user/hive/warehouse/orders</param>
+		<param key="hive-import"></param>
+        <param key="hive-table">ORDERS</param>
+        <param key="hive-partition-key">dt</param>
+		<param key="hive-partition-value">$dt</param>
+		<param key="m">5</param>
+        <param key="hive-overwrite"></param>
+        <param key="hive-delims-replacement">'\\t'</param>
+        <param key="null-string">'\\N'</param>
+        <param key="null-non-string">'\\N'</param>
+		<param key="split-by">PKId</param>
+		<param key="map-column-hive">'SubTotal=DOUBLE,PKId=BIGINT'</param>
+	</sqoop-shell>
+</root>

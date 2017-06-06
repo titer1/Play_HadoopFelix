@@ -1,0 +1,84 @@
+8
+
+dir
+564
+http://172.16.2.222:18080/svn/shanghangxin/RowNumUDF
+http://172.16.2.222:18080/svn/shanghangxin
+
+
+
+2014-03-10T07:44:29.074862Z
+564
+liwei@tsinghuabigdata.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7dd21143-5933-4b2a-8481-8aa9133a656f
+
+.classpath
+file
+567
+
+
+
+2014-02-13T03:40:06.371191Z
+c13cf985794d303599eac726b49242e9
+2014-03-10T07:45:34.287551Z
+567
+liwei@tsinghuabigdata.com
+
+hadoop-core-0.20.2-cdh3u6.jar
+file
+566
+
+
+
+2014-02-13T03:39:58.904764Z
+12e6345d160207d35456e4e008945768
+2014-03-10T07:45:18.057395Z
+566
+liwei@tsinghuabigdata.com
+has-props
+
+hive-exec-0.7.1-cdh3u6.jar
+file
+566
+
+
+
+2014-02-13T03:33:26.623327Z
+21b057eb72ddf640a8bff829bc98d6c8
+2014-03-10T07:45:18.057395Z
+566
+liwei@tsinghuabigdata.com
+has-props
+
+.project
+file
+567
+
+
+
+2014-02-13T03:15:19.078123Z
+7b89ae8f67c569bc34f6e2e7d7df9dc7
+2014-03-10T07:45:34.287551Z
+567
+liwei@tsinghuabigdata.com
+
+src
+dir
+
+.settings
+dir
+

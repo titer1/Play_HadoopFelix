@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/shanghangxin/!svn/ver/564/RowNumUDF
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/shanghangxin/!svn/ver/567/RowNumUDF/.classpath
+END
+hadoop-core-0.20.2-cdh3u6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/shanghangxin/!svn/ver/566/RowNumUDF/hadoop-core-0.20.2-cdh3u6.jar
+END
+hive-exec-0.7.1-cdh3u6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/shanghangxin/!svn/ver/566/RowNumUDF/hive-exec-0.7.1-cdh3u6.jar
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/shanghangxin/!svn/ver/567/RowNumUDF/.project
+END

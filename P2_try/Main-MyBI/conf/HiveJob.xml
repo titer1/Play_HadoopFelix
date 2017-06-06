@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Job type="analysis">
+		<hql>数据分析的HQL</hql>
+		<hql>...</hql>
+		<hql>...</hql>
+	</Job>
+</root>
+

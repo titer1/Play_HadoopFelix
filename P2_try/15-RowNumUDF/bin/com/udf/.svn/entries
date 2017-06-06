@@ -1,0 +1,28 @@
+8
+
+dir
+565
+http://172.16.2.222:18080/svn/shanghangxin/RowNumUDF/src/com/tsinghua
+http://172.16.2.222:18080/svn/shanghangxin
+
+
+
+2014-03-10T07:45:04.691264Z
+565
+liwei@tsinghuabigdata.com
+
+
+svn:special svn:externals svn:needs-lock
+
+RowNumUDF.java
+file
+578
+
+
+
+2014-03-10T08:34:52.882415Z
+fab388d05aef6ba62d949bb2fae970fc
+2014-03-10T08:34:34.475614Z
+578
+liwei@tsinghuabigdata.com
+

@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Sat Oct 04 03:51:43 CST 2014
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=UserCluster_fat.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<jar|hadoop-core-0.20.2-cdh3u6.jar>;<jar|log4j-1.2.15.jar>;<jar|guava-r09-jarjar.jar>
+includes=

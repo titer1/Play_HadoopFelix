@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<pras type="main">
+		<hql>select count(*) from ORDERS </hql>
+		<output>false</output>		
+		<filepath>/opt/temp_exe_hql_output</filepath>
+	</pras>
+</root>

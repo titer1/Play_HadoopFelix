@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<task>
+		<table>tableE</table><!--数据库中需要导出的第一张表名  -->
+		</task>
+</root>

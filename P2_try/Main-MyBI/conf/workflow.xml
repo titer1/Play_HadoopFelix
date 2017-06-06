@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+	<!-- 利用导入导出模块进行数据导入-->
+	<task type = "import">exe_sqoop</task>
+	
+	<!-- 执行点击流数据清洗-->
+	<task>etl_clickstream</task>
+	
+	<!-- 利用数据分析工具模块业务数据清洗-->
+	<task type = "etl_db">exe_hive</task>
+	
+	<!-- 执行转化率分析-->
+	<task>conversion</task>
+	
+	<!-- 利用数据分析工具模块进行其他分析-->
+	<task type = "other_analysis">exe_hive</task>
+	
+	<!-- 利用导入导出模块进行数据导出-->
+	<task type = "export">exe_sqoop</task>
+	
+</root>
