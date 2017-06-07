@@ -1,7 +1,7 @@
 # Play_HadoopFelix
   感谢一路的好伙伴，尤其感谢范老师，他的指点迷津，让我坚持了做大数据的决心。
 
-  这是[hadoop海量数据处理](https://item.jd.com/11954403.html)书的实践记录，本工程基于2017.05.17的作者源代码进行再开发。
+  这不仅仅是[hadoop海量数据处理](https://item.jd.com/11954403.html)书的实践记录，还会基于作者版本(2017.05.17)进行再开发。
   
   本项目分4阶段进行。
 
@@ -12,11 +12,11 @@
 
 [实战hadoop海量数据处理系列03 ：数据仓库的设计](http://blog.csdn.net/titer1/article/details/72898337)
 
-[实战hadoop海量数据处理系列02: hql执行工具](http://blog.csdn.net/titer1/article/details/72897514)
+[实战hadoop海量数据处理系列02 : hql执行工具](http://blog.csdn.net/titer1/article/details/72897514)
 
-[实战hadoop海量数据处理系列01：数据导入篇 ](http://blog.csdn.net/titer1/article/details/72896061)
+[实战hadoop海量数据处理系列01 ：数据导入篇 ](http://blog.csdn.net/titer1/article/details/72896061)
 
-[实战hadoop海量数据处理系列:序 ](http://blog.csdn.net/titer1/article/details/72895884)
+[实战hadoop海量数据处理系列 : 序 ](http://blog.csdn.net/titer1/article/details/72895884)
 
 
 - 第二阶段将实现数据库的创建，争取还原原书的数据库结构，数据库内容利用随机生成策略得到，本阶段期望实现数据源导入程序（import.py）和hql执行程序(exe_hql.py)的linux端运行
