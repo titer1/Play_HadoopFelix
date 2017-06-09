@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `BookStore`.`Orders` (
   `ShippingHandling` VARCHAR(45) NULL DEFAULT NULL,
   `ShipToName` VARCHAR(45) NULL DEFAULT NULL,
   `ShipToAddressId` INT NOT NULL,
-  `SubTotal` INT NULL,
+  `SubTotal` INT NULL DEFAULT 0,
   `Tax` INT NULL DEFAULT 0,
   `CreditCardType` VARCHAR(45) NULL DEFAULT NULL,
   `CreditCardNumber` VARCHAR(45) NULL DEFAULT NULL,
@@ -174,7 +174,23 @@ CREATE TABLE IF NOT EXISTS `BookStore`.`Clickstream_log` (
   PRIMARY KEY (`SessionId`))
 ENGINE = InnoDB;
 
+--- add procdeure by titer1 ,and add random date (-5,0) (0,5) (90,95)
+
+drop procedure  IF  EXISTS insert_Orders_For_alphaTest;
+
+CREATE  PROCEDURE `insert_Orders_For_alphaTest`(IN num int)
+begin
+declare i int;
+set i=0;
+while i<num do
+insert into Orders (PKId,CustomerId,ShipToAddressId,OrderDate,ExpirationDate,ModifyDate) values (rand()*1000,rand()*10,rand()*1000,curdate() - interval floor( rand()*5) day,curdate() + interval floor( rand()*5 + 90 ) day,curdate() + interval floor( rand()*5) day);
+set i=i+1;
+end while;
+end$$
+
+DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
