@@ -11,7 +11,7 @@ public class SortComparator extends WritableComparator{
 		}
 		
 		@Override
-		public int compare(WritableComparable w1, WritableComparable w2) {
+		public int compare(@SuppressWarnings("rawtypes") WritableComparable w1, @SuppressWarnings("rawtypes") WritableComparable w2) {
 			
 			String[] comp1 = w1.toString().split("&");
 			String[] comp2 = w2.toString().split("&");
@@ -19,25 +19,25 @@ public class SortComparator extends WritableComparator{
 			long result = 1;
 			
 			if(comp1 != null && comp2 != null){
-				////±È½ÏsessionId
+				////ï¿½È½ï¿½sessionId
 				result = comp1[0].compareTo(comp2[0]);
-				////ÔÚsessionIdÒ»ÑùµÄÇé¿öÏÂ±È½ÏreceiveTime
+				////ï¿½ï¿½sessionIdÒ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±È½ï¿½receiveTime
 				if(result == 0 && comp1.length > 1 && comp2.length > 1){
 					
 					long receiveTime1 = 0;
 					long receiveTime2 = 0;
 					
 					try {
-						///È¡µÃreceiveTime
+						///È¡ï¿½ï¿½receiveTime
 						receiveTime1 = Long.parseLong(comp1[1]);
 						receiveTime2 = Long.parseLong(comp2[1]);
 						result = receiveTime1 - receiveTime2;
 						
 						if(result == 0){
-							//Èç¹ûreceiveTimeÏàµÈ£¬·µ»Ø0
+							//ï¿½ï¿½ï¿½receiveTimeï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½0
 							return 0;
 						}else{
-							//Èç¹ûw1µÄreceiveTime´ó£¬·µ»Ø1£¬·ñÔò·µ»Ø-1
+							//ï¿½ï¿½ï¿½w1ï¿½ï¿½receiveTimeï¿½ó£¬·ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½-1
 							return result > 0 ? 1 : -1;
 						}
 						

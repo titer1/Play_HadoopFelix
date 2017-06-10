@@ -6,31 +6,33 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 public class ClickStreamReducer extends Reducer<Text, Text, NullWritable, Text>{
 
-	///表示前一个sessionId
-	public String preSessionId = "-";
+	///锟斤拷示前一锟斤拷sessionId
+	public static String preSessionId = "-";
+	static int csvp = 0;
 	
 	protected void reduce(Text key, Iterable<Text> values, Context context) throws java.io.IOException ,InterruptedException {
 		
-		int csvp = 0;
+		
 		
 		String sessionId = key.toString().split("&")[0];		
 		
-		//如果是第一条数据
+		//锟斤拷锟斤拷堑锟揭伙拷锟斤拷锟斤拷
 		if(preSessionId.equals("-")){
 			csvp = 1;
+			preSessionId = sessionId;
 		}else{
-			//如果与前一个sessionId相同，说明是同一个session
+			//锟斤拷锟斤拷锟角耙伙拷锟絪essionId锟斤拷同锟斤拷说锟斤拷锟斤拷同一锟斤拷session
 			if(preSessionId.equals(sessionId)){
-				//累加csvp
+				//锟桔硷拷csvp
 				csvp++;
-			//如果不同，说明是新的session，重置preSessionId和csvp
+			//锟斤拷锟酵拷锟剿碉拷锟斤拷锟斤拷碌锟絪ession锟斤拷锟斤拷锟斤拷preSessionId锟斤拷csvp
 			}else{
 				preSessionId = sessionId;
 				csvp = 1;
 			}
 		}
 		
-		//按照clickstream_log的格式在末尾加上csvp
+		//锟斤拷锟斤拷clickstream_log锟侥革拷式锟斤拷末尾锟斤拷锟斤拷csvp
 		String reduceOutValue = values.iterator().next().toString() + "\t" + csvp;
 		context.write(NullWritable.get(), new Text(reduceOutValue));
 	};

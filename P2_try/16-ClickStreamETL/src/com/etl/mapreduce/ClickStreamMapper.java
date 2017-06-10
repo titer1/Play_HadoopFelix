@@ -17,11 +17,11 @@ import com.etl.utls.IpParser;
 
 public class ClickStreamMapper extends Mapper<LongWritable, Text, Text, Text>{
 	
-	//ApacheÈÕÖ¾µÄÕýÔò±í´ïÊ½
+	//Apacheï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 	public static final String APACHE_LOG_REGEX = "^([0-9.]+)\\s([\\w.-]+)\\s([\\w.-]+)\\s(\\[[^\\[\\]]+\\])\\s\"((?:[^\"]|\\\")+)\"\\s(\\d{3})\\s(\\d+|-)\\s\"((?:[^\"]|\\\")+)\"\\s\"((?:[^\"]|\\\")+)\"\\s\"(.+)\"\\s(\\d+|-)\\s(\\d+|-)\\s(\\d+|-)\\s(.+)\\s(\\d+|-)$";
 	public static final String CANNOT_GET = "can not get";
 	
-	//ÐèÒª»ñÈ¡µÄ×Ö¶Î
+	//ï¿½ï¿½Òªï¿½ï¿½È¡ï¿½ï¿½ï¿½Ö¶ï¿½
 	private String ipAddress = CANNOT_GET;
 	private String uniqueId = CANNOT_GET;
 	private String url = CANNOT_GET;
@@ -39,7 +39,7 @@ public class ClickStreamMapper extends Mapper<LongWritable, Text, Text, Text>{
 	
 		String log = value.toString();
 		
-		//ÕýÔò½âÎöÈÕÖ¾
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
 		Pattern pattern = Pattern.compile(APACHE_LOG_REGEX); 
 		Matcher matcher = pattern.matcher(log);
 		
@@ -54,22 +54,22 @@ public class ClickStreamMapper extends Mapper<LongWritable, Text, Text, Text>{
 		
 		if(matcher.find()){
 			
-			//¸ù¾ÝÕýÔò±í´ïÊ½½«ÈÕÖ¾ÎÄ¼þ¶Ï¿ª
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½Ä¼ï¿½ï¿½Ï¿ï¿½
 			ipStr = matcher.group(1);
 			receiveTimeStr = matcher.group(4);
 			urlStr = matcher.group(5);
-			userAgentStr = matcher.group(8);
-			referUrlStr = matcher.group(9);
+			userAgentStr = matcher.group(9);
+			referUrlStr = matcher.group(8);//sequence
 			cookieStr = matcher.group(10);
 			hostNameStr = matcher.group(14);
 			
-			//±£´æIPµØÖ·
+			//ï¿½ï¿½ï¿½ï¿½IPï¿½ï¿½Ö·
 			ipAddress = ipStr;
 			
 			IpParser ipParser = new IpParser();
 			
 			try {
-				//¸ù¾ÝIPµØÖ·µÃ³öËùÔÚÇøÓò
+				//ï¿½ï¿½ï¿½IPï¿½ï¿½Ö·ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				areaAddress = ipParser.parse(ipStr).split(" ")[0];
 				loaclAddress = ipParser.parse(ipStr).split(" ")[1];
 				
@@ -78,36 +78,39 @@ public class ClickStreamMapper extends Mapper<LongWritable, Text, Text, Text>{
 				e.printStackTrace();
 			}
 			
-			DateFormat df = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss",Locale.US);
-			
+			DateFormat df = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z",Locale.US);
+			receiveTimeStr=receiveTimeStr.replace("[","").replace("]","");
 			try {
 				Date date = df.parse(receiveTimeStr);
-				///½«Ê±¼ä×Ö·û´®×ª»»Îª³¤ÕûÐÐ
+				///ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ö·ï¿½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				receiveTime = Long.toString(date.getTime());
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-			///½«urlÖÐµÄÎÞÐ§×Ö·û´®¶ªÆú
+			///ï¿½ï¿½urlï¿½Ðµï¿½ï¿½ï¿½Ð§ï¿½Ö·ï¿½ï¿½ï¿½
 			urlStr = urlStr.substring(5);
-			///ÖØÐÂÆ´×°³Éurl×Ö·û´®
-			url = hostNameStr + urlStr;
+			///ï¿½ï¿½ï¿½ï¿½Æ´×°ï¿½ï¿½urlï¿½Ö·ï¿½
+			url = hostNameStr +"/"+ urlStr;//fix
 			
-			///ÓÃ»§ä¯ÀÀÆ÷ÐÅÏ¢µÄÕýÔò±í´ïÊ½
+			///ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 			String userAgentRegex = "^(.+)\\s\\((.+)\\)\\s(.+)\\s\\((.+)\\)\\s(.+)\\s(.+)$";
 			pattern = Pattern.compile(userAgentRegex);
+			
+			/*
 			matcher = pattern.matcher(userAgentStr);
 			
-			///»ñÈ¡ä¯ÀÀÆ÷ÀàÐÍ
+			///ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			browserType = matcher.group(5);
-			///»ñÈ¡²Ù×÷ÏµÍ³ÀàÐÍ
+			///ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½
 			operationSys = matcher.group(2).split(" ")[0];
+			*/
 			
-			///±£´æÉÏÒ»¸öÒ³Ãæurl
+			///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ò³ï¿½ï¿½url
 			referUrl = referUrlStr;
 			
-			///Hashmap±£´æcookieÐÅÏ¢
+			///Hashmapï¿½ï¿½ï¿½ï¿½cookieï¿½ï¿½Ï¢
 			HashMap<String, String> cookies = new HashMap<String, String>();
 			
 			String[] strs = cookieStr.split(";");
@@ -119,26 +122,26 @@ public class ClickStreamMapper extends Mapper<LongWritable, Text, Text, Text>{
 				cookies.put(keyStr, valStr);
 			}
 			
-			///»ñÈ¡uuidÐÅÏ¢
+			///ï¿½ï¿½È¡uuidï¿½ï¿½Ï¢
 			uniqueId = cookies.get("uuid");
 			
-			///»ñÈ¡ÕËºÅÐÅÏ¢
+			///ï¿½ï¿½È¡ï¿½Ëºï¿½ï¿½ï¿½Ï¢
 			userId = cookies.get("userId");
 			
-			///Èç¹ûÃ»ÓÐ»ñÈ¡³É¹¦£¬ËµÃ÷ÓÃ»§Ã»ÓÐµÇÂ¼
+			///ï¿½ï¿½ï¿½Ã»ï¿½Ð»ï¿½È¡ï¿½É¹ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ã»ï¿½Ã»ï¿½Ðµï¿½Â¼
 			if(userId == null){
 				userId = "un_log_in";
 			}
 			
-			//»ñÈ¡seesionTimes
+			//ï¿½ï¿½È¡seesionTimes
 			sessionTimes = cookies.get("st");
 			
-			//Æ´×°³ÉsessionId
+			//Æ´×°ï¿½ï¿½sessionId
 			sessionId = uniqueId + "|" + sessionTimes;
 			
-			//ÓÃsessionIdºÍreceiveTime×é³ÉÐÂµÄkey
+			//ï¿½ï¿½sessionIdï¿½ï¿½receiveTimeï¿½ï¿½ï¿½ï¿½Âµï¿½key
 			String mapOutKey = sessionId + "&" + receiveTime;
-			//°´ÕÕclickstream_log±íµÄË³ÐòÖØÐÂ×éºÏÕâÐ©×Ö¶Î
+			//ï¿½ï¿½ï¿½ï¿½clickstream_logï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð©ï¿½Ö¶ï¿½
 			String mapOutValue = ipAddress + "\t" + uniqueId + "\t" + url + "\t" + sessionId + "\t" + sessionTimes + "\t" + areaAddress + "\t" + loaclAddress + "\t" + browserType + "\t" + operationSys + "\t" + referUrl + "\t" + receiveTime + "\t" + userId;
 			
 			context.write(new Text(mapOutKey), new Text(mapOutValue));

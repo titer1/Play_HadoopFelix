@@ -23,13 +23,13 @@ public class Driver {
 		Configuration configuration = new Configuration();
 		
 		if(args.length != 2){
-			System.out.println("²ÎÊý²»ÕýÈ·");
+			System.out.println("Wrong Parameter");
 			return;
 		}
 		
-		//È¡µÃÊäÈëÂ·¾¶£¬¼´µã»÷Á÷ÈÕÖ¾´æ·ÅµÄHDFSÂ·¾¶
+		//È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½Åµï¿½HDFSÂ·ï¿½ï¿½
 		String inputPath = args[0];
-		//È¡µÃÊä³öÂ·¾¶£¬¼´clickstream_log±íµÄHDFSÂ·¾¶
+		//È¡ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½clickstream_logï¿½ï¿½ï¿½HDFSÂ·ï¿½ï¿½
 		String outputPath = args[1];
 
 		Job job = new Job(configuration,"clickstream_etl");
@@ -38,8 +38,8 @@ public class Driver {
 		FileOutputFormat.setOutputPath(job, new Path(outputPath));
 		job.setMapperClass(ClickStreamMapper.class);
 		job.setReducerClass(ClickStreamReducer.class);
-		//ÊÖ¶¯ÉèÖÃReducerµÄ¸öÊý£¬¸ÃÖµ¿É¸ù¾Ý¼¯Èº¼ÆËãÄÜÁ¦×ÃÇé¿¼ÂÇ
-		job.setNumReduceTasks(4);
+		//ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½Reducerï¿½Ä¸ï¿½ï¿½ï¿½ï¿½Öµï¿½É¸ï¿½Ý¼ï¿½Èºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é¿¼ï¿½ï¿½
+		job.setNumReduceTasks(1);//66 set small
 		job.setOutputFormatClass(TextOutputFormat.class);
 		job.setPartitionerClass(SessionIdPartioner.class);
 		job.setSortComparatorClass(SortComparator.class);

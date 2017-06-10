@@ -1,0 +1,14 @@
+120.196.145.58 - - [11/Dec/2013:10:00:32 +0800] "GET /__utm.gif" 200 35 "http://easternmiles.ceair.com/flight/index.html" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36" "BIGipServermu_122.119.122.14=192575354.20480.0000;Webtrends=120.196.145.58.1386724976245806;uuid=sid1;userId=099;st=1" 1482 352 - easternmiles.ceair.com 794
+
+120.196.145.58 - - [11/Dec/2013:10:01:32 +0800] "GET /__utm.gif" 200 35 "http://easternmiles.ceair.com/flight/index.html" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36" "BIGipServermu_122.119.122.14=192575354.20480.0000;Webtrends=120.196.145.58.1386724976245806;uuid=sid1;userId=099;st=1" 1482 352 - easternmiles.ceair.com 794
+
+120.196.145.58 - - [11/Dec/2013:10:02:32 +0800] "GET /__utm.gif" 200 35 "http://easternmiles.ceair.com/flight/index.html" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36" "BIGipServermu_122.119.122.14=192575354.20480.0000;Webtrends=120.196.145.58.1386724976245806;uuid=sid1;userId=099;st=1" 1482 352 - easternmiles.ceair.com 794
+
+120.196.145.58 - - [11/Dec/2013:10:03:32 +0800] "GET /__utm.gif" 200 35 "http://easternmiles.ceair.com/flight/index.html" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36" "BIGipServermu_122.119.122.14=192575354.20480.0000;Webtrends=120.196.145.58.1386724976245806;uuid=sid2;userId=199;st=10" 1482 352 - easternmiles.ceair.com 794
+
+120.196.145.58 - - [11/Dec/2013:10:04:32 +0800] "GET /__utm.gif" 200 35 "http://easternmiles.ceair.com/flight/index.html" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36" "BIGipServermu_122.119.122.14=192575354.20480.0000;Webtrends=120.196.145.58.1386724976245806;uuid=sid2;userId=199;st=10" 1482 352 - easternmiles.ceair.com 794
+
+120.196.145.58 - - [11/Dec/2013:10:04:32 +0800] "GET /__utm.gif" 200 35 "http://easternmiles.ceair.com/flight/index.html" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36" "BIGipServermu_122.119.122.14=192575354.20480.0000;Webtrends=120.196.145.58.1386724976245806;uuid=sid3;userId=299;st=100" 1482 352 - easternmiles.ceair.com 794
+
+
+
